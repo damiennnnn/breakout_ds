@@ -1,6 +1,6 @@
 ### breakout_ds
 
-[![Screenshot](https://i.imgur.com/UOYLKxL.png "Screenshot")](https://i.imgur.com/UOYLKxL.png "Screenshot")
+[![Screenshot](https://i.imgur.com/c8DAjA3.png "Screenshot")](https://i.imgur.com/c8DAjA3.png "Screenshot")
 
 atari breakout clone for nintendo ds
 
