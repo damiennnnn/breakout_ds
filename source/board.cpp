@@ -218,7 +218,7 @@ bool Board::Update(){
 
 	ball->Update();
 	paddle->Update();
-	if (_brickcollide) {score++; AdjustBallSpeed(1.0f);};
+	if (_brickcollide) {score++;};
 	return (_brickcollide || _boardcollide || _paddlecollide);
 }
 

@@ -4,7 +4,7 @@
 #define board_width 8
 #define board_height 16
 #define brick_width 32
-#define brick_height 6
+#define brick_height 10
 
 class Board
 {
