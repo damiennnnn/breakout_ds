@@ -2,7 +2,7 @@
 
 Paddle::Paddle(){
 	y = 186;
-	x = 120;
+	x = 118;
 	width = 36;
 	height = 4;
 	move_speed = 5;
