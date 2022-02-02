@@ -13,10 +13,27 @@ void Board::Init(){
 	y = 0;
 	score = 0;
 	alive_count = board_width * board_height;
+	int c = div32(board_height, 5);
+
 	for (int i =0; i < board_width;i++){
+		int d = 0;
+		int f = 0;
 		for (int j = 0; j < board_height; j++){
 			brick_state[i][j] = true; // initialise game board
-			brick_col[i][j] = RGB15(rand()%255,rand()%255,rand()%255);
+			int col = RGB15(255,255,255);
+			d++;
+			switch (f){
+				case 0: col = RGB15(31,0,0);break;
+				case 1: col = RGB15(31,15,0);break;
+				case 2:	col = RGB15(31,31,0);break;
+				case 3: col = RGB15(0,31,0);break;
+				case 4:	col = RGB15(0,0,31);break;
+			}
+			if (d >= c){
+				d = 0;
+				f++;
+			}
+			brick_col[i][j] = col;
 		}
 	}
 }
@@ -41,6 +58,7 @@ void Board::Draw(){
 				float brick_x2 = (brick_x + brick_width);
 				float brick_y2 = (brick_y + brick_height);
 				glBoxFilled(brick_x, brick_y, brick_x2, brick_y2, brick_col[i][j]);
+				glBox(brick_x, brick_y, brick_x2, brick_y2, RGB15(255,255,255));
 			}
 		}
 	}
