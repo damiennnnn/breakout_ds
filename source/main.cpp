@@ -16,7 +16,7 @@ int main(void) {
 	consoleDemoInit();
 	glScreen2D();
 	soundEnable();
-	int sound_id = soundPlayNoise(7000, g_vol, 64);
+	int sound_id = soundPlayNoise(6000, g_vol, 64);
 	Board board;
 	
 	while(1) {
