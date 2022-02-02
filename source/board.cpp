@@ -12,6 +12,7 @@ void Board::Init(){
 	x = 0;
 	y = 0;
 	score = 0;
+	alive_count = board_width * board_height;
 	for (int i =0; i < board_width;i++){
 		for (int j = 0; j < board_height; j++){
 			brick_state[i][j] = true; // initialise game board
@@ -141,7 +142,7 @@ bool Board::Tick(){
 					&& ball->y <= (brick_y + brick_height)
 					&& (ball->y + ball->height) >= brick_y){
 						brick_state[i][j] = false; // collision
-
+					alive_count--;
 					float y_min = 0;
 					if (brick_y > ball->y){
 						y_min = brick_y;
@@ -218,7 +219,7 @@ bool Board::Update(){
 
 	ball->Update();
 	paddle->Update();
-	if (_brickcollide) {score++;};
+	if (_brickcollide) {score++; AdjustBallSpeed(0.1f);};
 	return (_brickcollide || _boardcollide || _paddlecollide);
 }
 
@@ -236,5 +237,5 @@ void Board::PrintDebugInfo()
 	printf("\x1b[15;0H paddle speed: %d          ", paddle->move_speed);
 	
 	printf("\x1b[16;0H score: %d          ", score);
-	
+	printf("\x1b[17;0H bricks: %d / %d", alive_count, board_width * board_height);
 }
