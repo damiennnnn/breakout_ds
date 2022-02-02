@@ -56,7 +56,7 @@ int main(void) {
 		printf("\x1b[4;0Hor use touchscreen to move");
 		printf("\x1b[5;0HLEFT + RIGHT - ball speed");
 		printf("\x1b[6;0HX + Y - paddle speed");
-		printf("\x1b[7;0START to pause");
+		printf("\x1b[7;0HSTART to pause");
 
 
 

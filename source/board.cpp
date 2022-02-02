@@ -210,9 +210,12 @@ bool Board::Tick(){
 	return false;
 }
 bool Board::Update(){
+
 	bool _boardcollide = BoardCollision();
 	bool _paddlecollide = PaddleCollision();
+
 	bool _brickcollide = Tick();
+
 	ball->Update();
 	paddle->Update();
 	if (_brickcollide) {score++; AdjustBallSpeed(1.0f);};
