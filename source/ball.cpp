@@ -2,7 +2,7 @@
 #include <cmath>
 Ball::Ball()
 {
-	ball_speed = 32;
+	ball_speed = 128;
 	x =160; y =160 ;
 	width = 4; 
 	height = 4;
