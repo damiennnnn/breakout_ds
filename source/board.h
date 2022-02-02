@@ -1,9 +1,9 @@
 #include "includes.h"
 #include "ball.h"
 #include "paddle.h"
-#define board_width 12
+#define board_width 8
 #define board_height 16
-#define brick_width 24
+#define brick_width 32
 #define brick_height 6
 
 class Board

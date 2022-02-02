@@ -25,10 +25,6 @@ void Paddle::Draw(){
 
 bool Paddle::Collides(int nx,int ny,int w,int h)
 {
-	//    if (x + width > other->x && x < other->x + other->width &&
-     //   y + height > other->y && y < other->y + other->height) {
-     //   return true;
-    //}
 	return ((x + width) > nx
     	&& x < (nx + w)
     	&& (y + height) > ny
