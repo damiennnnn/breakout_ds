@@ -3,8 +3,8 @@
 class Paddle
 {
 private:
-	int move_speed;
 public:
+	int move_speed;
 	int x, y;
 	int width, height;
 	Paddle();

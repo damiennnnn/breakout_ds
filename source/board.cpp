@@ -219,7 +219,9 @@ bool Board::Update(){
 	return (_brickcollide || _boardcollide || _paddlecollide);
 }
 
-
+void Board::AdjustPaddleSpeed(int s){
+	paddle->move_speed += s;
+}
 void Board::AdjustBallSpeed(float s){
 	ball->ball_speed += s;
 }
@@ -228,6 +230,8 @@ void Board::PrintDebugInfo()
 	printf("\x1b[12;0H ball x: %f          ", ball->x);
 	printf("\x1b[13;0H ball y: %f          ", ball->y);
 	printf("\x1b[14;0H ball speed: %f          ", ball->ball_speed);
-	printf("\x1b[15;0H score: %d          ", score);
+	printf("\x1b[15;0H paddle speed: %d          ", paddle->move_speed);
+	
+	printf("\x1b[16;0H score: %d          ", score);
 	
 }

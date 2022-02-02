@@ -27,6 +27,7 @@ public:
 	bool Update();
 	void Draw();
 
+	void AdjustPaddleSpeed(int);
 	void AdjustBallSpeed(float);
 	void PaddleMove(int);
 	void PaddleSetX(int);
