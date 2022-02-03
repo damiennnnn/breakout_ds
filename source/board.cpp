@@ -66,8 +66,8 @@ void Board::Init(){
 void Board::PaddleSetX(int newx){
 	paddle->SetX(newx);
 }
-int Board::PaddleGetX(){
-	return paddle->x;
+int Board::BallGetX(){
+	return (int)ball->x;
 }
 void Board::PaddleMove(int dir){
 	// 0 = left 1 = right
