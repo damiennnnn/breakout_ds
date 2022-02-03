@@ -58,8 +58,6 @@ int main(void) {
 		printf("\x1b[6;0HX + Y - paddle speed");
 		printf("\x1b[7;0HSTART to pause");
 
-
-
 		printf("\x1b[9;0Htouch x: %d y: %d          ", data.px, data.py);
 		printf("\x1b[10;0Hvolume: %d          ", g_vol);
 

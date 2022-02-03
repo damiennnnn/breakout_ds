@@ -15,7 +15,7 @@ void Board::Init(){
 	alive_count = board_width * board_height;
 	int c = div32(board_height, 5);
 
-	for (int i =0; i < board_width;i++){
+	for (int i = 0; i < board_width;i++){
 		int d = 0;
 		int f = 0;
 		for (int j = 0; j < board_height; j++){
@@ -255,5 +255,5 @@ void Board::PrintDebugInfo()
 	printf("\x1b[15;0H paddle speed: %d          ", paddle->move_speed);
 	
 	printf("\x1b[16;0H score: %d          ", score);
-	printf("\x1b[17;0H bricks: %d / %d", alive_count, board_width * board_height);
+	printf("\x1b[17;0H bricks: %d / %d          ", alive_count, board_width * board_height);
 }
