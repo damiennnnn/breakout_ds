@@ -16,6 +16,7 @@ void Board::Init(){
 	int c = div32(board_height, 5);
 
 	for (int i = 0; i < board_width;i++){
+		if ((i % 2) == 1) continue;
 		int d = 0;
 		int f = 0;
 		for (int j = 0; j < board_height; j++){
@@ -232,11 +233,11 @@ bool Board::Update(){
 
 	bool _boardcollide = BoardCollision();
 	bool _paddlecollide = PaddleCollision();
-
 	bool _brickcollide = Tick();
 
 	ball->Update();
 	paddle->Update();
+
 	if (_brickcollide) {score++; AdjustBallSpeed(0.01f);};
 	return (_brickcollide || _boardcollide || _paddlecollide);
 }
