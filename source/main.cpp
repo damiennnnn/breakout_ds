@@ -32,6 +32,10 @@ int main(void) {
 			board.AdjustPaddleSpeed(-1);
 		if (keyspres & KEY_Y)
 			board.AdjustPaddleSpeed(1);
+		if (keyspres & KEY_A)
+			board.SetLevel(board.level-1);
+		if (keyspres & KEY_B)
+			board.SetLevel(board.level+1);
 
 		int keys = keysHeld();
 		if (keys & KEY_L)
@@ -46,8 +50,10 @@ int main(void) {
 			board.PaddleSetX(data.px);
 
 		if (!_pause)
-			if (board.Update())
+			if (board.Update()){
+				soundSetFreq(sound_id,8000 + (rand()%500));
 				g_vol = 64;
+			}
 
 		board.Draw();
 
@@ -56,7 +62,8 @@ int main(void) {
 		printf("\x1b[4;0Hor use touchscreen to move");
 		printf("\x1b[5;0HLEFT + RIGHT - ball speed");
 		printf("\x1b[6;0HX + Y - paddle speed");
-		printf("\x1b[7;0HSTART to pause");
+		printf("\x1b[7;0HA + B - change level");
+		printf("\x1b[8;0HSTART to pause");
 
 		printf("\x1b[9;0Htouch x: %d y: %d          ", data.px, data.py);
 		printf("\x1b[10;0Hvolume: %d          ", g_vol);

@@ -11,12 +11,11 @@ class Board
 private:
 	bool brick_state[board_width][board_height];
 	int brick_col[board_width][board_height];
-	int alive_count;
+	int alive_count, max_count;
 	Ball* ball;
 	Paddle* paddle;
 	float offsetX, offsetY;
 	int x, y;
-
 	int score;
 	void BallBrickResponse(int);
 	bool BoardCollision();
@@ -28,6 +27,8 @@ public:
 	bool Update();
 	void Draw();
 
+	int level; 
+	void SetLevel(int);
 	void AdjustPaddleSpeed(int);
 	void AdjustBallSpeed(float);
 	void PaddleMove(int);

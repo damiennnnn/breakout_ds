@@ -1,6 +1,25 @@
 #include "board.h"
 
+
+#define level_count 4
+std::vector<int> columns[level_count];
+
+
+void LevelInit(){
+	columns[0] = {0, 1, 2,3,4,5,6,7};
+	columns[1] = {0, 1, 3,4,6,7};
+	columns[2] = {1, 2, 5,6};
+	columns[3] = {0, 2, 5, 7};
+}
 Board::Board(){
+	level = 0;
+	LevelInit();
+	Init();
+}
+
+void Board::SetLevel(int l){
+	if (l < level_count && l >= 0)
+		level = l;
 	Init();
 }
 
@@ -12,15 +31,19 @@ void Board::Init(){
 	x = 0;
 	y = 0;
 	score = 0;
-	alive_count = board_width * board_height;
-	int c = div32(board_height, 5);
+	alive_count = 0;
 
-	for (int i = 0; i < board_width;i++){
-		if ((i % 2) == 1) continue;
+	for (int i =0; i < board_width; i++)
+		for (int j = 0; j < board_height; j++)
+			brick_state[i][j] = false;
+
+	int c = div32(board_height, 5);
+	for (int i = 0; i < columns[level].size(); i++){
 		int d = 0;
 		int f = 0;
 		for (int j = 0; j < board_height; j++){
-			brick_state[i][j] = true; // initialise game board
+			brick_state[columns[level][i]][j] = true; // initialise game board
+			alive_count++;
 			int col = RGB15(255,255,255);
 			d++;
 			switch (f){
@@ -34,9 +57,10 @@ void Board::Init(){
 				d = 0;
 				f++;
 			}
-			brick_col[i][j] = col;
+			brick_col[columns[level][i]][j] = col;
 		}
 	}
+	max_count = alive_count;
 }
 
 void Board::PaddleSetX(int newx){
@@ -256,5 +280,6 @@ void Board::PrintDebugInfo()
 	printf("\x1b[15;0H paddle speed: %d          ", paddle->move_speed);
 	
 	printf("\x1b[16;0H score: %d          ", score);
-	printf("\x1b[17;0H bricks: %d / %d          ", alive_count, board_width * board_height);
+	printf("\x1b[17;0H bricks: %d / %d          ", alive_count, max_count);
+	printf("\x1b[18;0H level: %d  ", level+1);
 }
