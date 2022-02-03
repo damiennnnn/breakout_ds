@@ -33,5 +33,6 @@ public:
 	void AdjustBallSpeed(float);
 	void PaddleMove(int);
 	void PaddleSetX(int);
+	int PaddleGetX();
 	void PrintDebugInfo();
 };

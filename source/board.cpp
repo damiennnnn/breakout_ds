@@ -66,6 +66,9 @@ void Board::Init(){
 void Board::PaddleSetX(int newx){
 	paddle->SetX(newx);
 }
+int Board::PaddleGetX(){
+	return paddle->x;
+}
 void Board::PaddleMove(int dir){
 	// 0 = left 1 = right
 	if (dir > 0)

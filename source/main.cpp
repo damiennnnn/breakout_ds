@@ -52,6 +52,7 @@ int main(void) {
 		if (!_pause)
 			if (board.Update()){
 				soundSetFreq(sound_id,8000 + (rand()%500));
+				soundSetPan(sound_id, board.PaddleGetX() /2 );
 				g_vol = 64;
 			}
 
